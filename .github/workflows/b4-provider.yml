@@ -40,6 +40,15 @@ on:
         type: string
         required: false
         default: ''
+      # TC-293: Helio delivers assigned variable-set values only to inputs the workflow declares (non-secret strings).
+      B4_COLOR:
+        type: string
+        required: false
+        default: ''
+      B4_COUNT:
+        type: string
+        required: false
+        default: ''
 
 permissions:
   contents: read
