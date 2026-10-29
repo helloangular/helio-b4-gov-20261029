@@ -1,0 +1,15 @@
+# B4 (qa227, 29 Oct 2026): push-only probe workflow. A push to probe/trigger.txt gives the lane one genuine
+# GitHub run whose id the Helio connection readiness probe reads. No environment, no deployment, no secrets.
+name: b4-probe
+on:
+  push:
+    branches: [main]
+    paths: ['probe/**']
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - run: echo "b4 probe run=$GITHUB_RUN_ID sha=$GITHUB_SHA"
